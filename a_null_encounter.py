@@ -9,6 +9,12 @@
 # the void and answer stages of questions
 # to win.
 
+# Import the constants module for useful constants.
+import constants
+
+# Import random module to use random functions.
+import random
+
 
 # Define a function to help get the correct
 # string answer from the user input.
@@ -21,7 +27,7 @@ def get_correct_string(prompt, target_str, lives):
 
         # Check if the user entered an input that did not
         # match the answer, meaning it was incorrect.
-        if (user_str_input != target_str):
+        if user_str_input != target_str:
             # Take away one life from the user
             # and keep it from going below zero.
             lives = max(lives - 1, 0)
@@ -33,7 +39,7 @@ def get_correct_string(prompt, target_str, lives):
             # Display to the user that they were correct,
             # along with their resulting lives.
             print(
-                f"Correct. You currently have {lives} {'life' if lives == 1 else 'lives'}."
+                f"Correct. You currently have {lives} {'life' if (lives == 1) else 'lives'}."
             )
 
         # Check if the user input was the correct answer or
@@ -41,6 +47,8 @@ def get_correct_string(prompt, target_str, lives):
         if (user_str_input == target_str) or (lives <= 0):
             # Break the loop.
             break
+    # Return the amount of lives left.
+    return lives
 
 
 # Define a function to help get the correct
@@ -59,7 +67,7 @@ def get_correct_integer(prompt, target_int, lives):
             user_int_input = int(user_int_input_str)
             # Check if the user entered an input that did not
             # match the answer, meaning it was incorrect.
-            if (user_int_input != target_int):
+            if user_int_input != target_int:
                 # Take away one life from the user
                 # and keep it from going below zero.
                 lives = max(lives - 1, 0)
@@ -71,20 +79,66 @@ def get_correct_integer(prompt, target_int, lives):
                 # Display to the user that they were correct,
                 # along with their resulting lives.
                 print(
-                    f"Correct. You currently have {lives} {'life' if lives == 1 else 'lives'}."
+                    f"Correct. You currently have {lives} {'life' if (lives == 1) else 'lives'}."
                 )
         # Runs if int() could not convert the user's string input into an integer.
         except ValueError:
             # Display to the user that they did not enter a valid integer.
             print(f"{user_int_input_str} is not a valid integer. Try again.")
-        
+
         # Check if the user input was the correct answer or
         # if their lives are less than or equal to zero.
         if (user_int_input == target_int) or (lives <= 0):
             # Break the loop.
             break
+    # Return the amount of lives left.
+    return lives
 
 
+# Define a function to loop through stage questions.
+def ask_questions(stage_entries, lives):
+    # Copy the stage entries list to safely
+    # modify it.
+    stage_entries_copy = stage_entries.copy()
+
+    # Shuffle the list copy for randomized questions.
+    stage_entries_copy.shuffle()
+
+    # Display the initial line for any stage.
+    print("Let us see...")
+
+    # Use a for loop to loop through every
+    # question in the specific stage list.
+    for question_num in range(len(stage_entries_copy)):
+        # Check if the type of the answer is a string.
+        if stage_entries_copy[question_num][1] == str:
+            # Run the string question function.
+            lives = get_correct_string(
+                stage_entries_copy[question_num][0],
+                stage_entries_copy[question_num][1],
+                lives,
+            )
+        # Otherwise, the type of the answer has to be an integer.
+        else:
+            # Run the integer question function.
+            lives = get_correct_string(
+                stage_entries_copy[question_num][0],
+                stage_entries_copy[question_num][1],
+                lives,
+            )
+        # Check if the lives are less than or equal to zero.
+        if (lives <= 0):
+            # Break the loop.
+            break
+
+    # Return the amount of lives left.
+    return lives
+
+# Define a function to generate a possible void
+# effect which challenges the user.
+def chance_void_effect(stage_num, lives):
+    # Determine the chance of the effect taking place.
+    pass
 
 # Define the main function.
 def main():
