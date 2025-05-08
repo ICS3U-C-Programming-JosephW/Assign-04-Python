@@ -21,8 +21,9 @@ STAGE_ENTRIES = [
         ["Is life supposed to be fun? (yes/no)", "yes"],
         ["2^4 = ", 16],
         ["5 + (3 x 4)^2 + ((10 - 2) / 2) = ", 153],
-        ["What is my name? (null/nothing/nobody)", "null"]
-        ["(2 + 1) x (3 - 2) x 16 = ", 48],
+        ["What is my name? (null/nothing/nobody)", "null"][
+            "(2 + 1) x (3 - 2) x 16 = ", 48
+        ],
     ],
     [
         ["Do morals always mean good...? (yes/no)", "no"],
@@ -36,13 +37,62 @@ STAGE_ENTRIES = [
         ["(6 + 3 x 2) x 2^3 + 4 + (12-2) = ", 110],
     ],
     [
-        ["1 + (1 % 1) - 1 + 1 + (1^0.88) / 1 - (1^1) - 1 + 1 - (1^0.5) + 1", 1]
-        ["Morality is complex and everyone sees it differently. (yes/no)", "yes"]
+        ["1 + (1 % 1) - 1 + 1 + (1^0.88) / 1 - (1^1) - 1 + 1 - (1^0.5) + 1", 1][
+            "Morality is complex and everyone sees it differently. (yes/no)", "yes"
+        ],
     ],
 ]
 
-# Create a 3-dimensional list to store all the corresponding
-# dialogue lines and delay times for each of the six parts.
+# Create a 3-dimensional list to store all the
+# corresponding dialogue lines and delay times
+# for each of the six story parts.
 STAGE_DIALOGUES = [
-    
+    [
+        [
+            "\nYou are in a void of space, yet you still can breathe. You are confused. What is all this?",
+            1,
+        ],
+        ["Null: ...", 0.5],
+        ["User: Who... are you?", 1.5],
+        ["Null: I am null.", 1.5],
+        ["User: Null as in nothing?", 1],
+        [
+            "Null: Well, sort of. "
+            "I forgot my name and pretty much everything else, "
+            "so that is what I go by.",
+            1.5,
+        ],
+        ["User: Wow... may I ask why I'm here?", 2],
+        [
+            "Null: I do not know. "
+            "People just spawn here like this is "
+            "some sort of dimension.",
+            3,
+        ],
+        ["User: So I'm stuck here forever???", 1],
+        [
+            "Null: No. Others managed to leave, some shorter than the others. "
+            "I would tell my story, and most of them would just disappear.",
+            2,
+        ]["User: Ah... wait, story? You have a backstory?", 2],
+        [
+            "Null: Yes. I would happy to share it.",
+            1.5,
+        ],
+        [
+            "User: Well, I have nothing to do, so sure, tell me what happened to you, how you got here.",
+            1,
+        ],
+        ["Null: Alright.", 0.5],
+        [".", 0.5],
+        [".", 0.5],
+        [".", 0.5],
+        [
+            "It was a sunny day outside. The birds were chirping, "
+            "flowers were blooming, and the scattered breezes made it all "
+            "the more pleasant.",
+            3,
+        ],
+        ["I felt like I could stay in this happy state forever."],
+    ]
 ]

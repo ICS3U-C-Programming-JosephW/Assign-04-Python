@@ -148,6 +148,8 @@ def chance_void_effect(stage_num, lives):
 
     # Check if a random integer from 1 to 100 is less than
     # or equal to the effect chance.
+    if random.randint(1, 100) <= effect_chance:
+        pass
 
 
 # Define the main function.
