@@ -13,13 +13,28 @@ STAGE_ENTRIES = [
     ],
     [
         ["Is it okay to forget often...? (yes/no)", "no"],
-        ["2 x 3 + 3", 9],
-        ["12 / 12", 1],
+        ["(2 x 3) + 3 = ", 9],
+        ["1 + (12 / 12) * 12 = ", 24],
         ["In this void, does time still exist? (yes/no)", "yes"],
     ],
-    [[], [], [], []],
-    [],
-    [],
+    [
+        ["Is life supposed to be fun? (yes/no)", "yes"],
+        ["2^4 = ", 16],
+        ["5 + (3 x 4)^2 + ((10 - 2) / 2) = ", 153],
+        ["What is my name? (null/nothing/nobody)", "null"]
+        ["(2 + 1) x (3 - 2) x 16 = ", 48],
+    ],
+    [
+        ["Do morals always mean good...? (yes/no)", "no"],
+        ["10 % 2 + 9^(3/6) = ", 3],
+        ["Could this all be an illusion? (yes/no/maybe)", "maybe"],
+        ["2 x (4^9^0.5) = ", 128],
+    ],
+    [
+        [],
+        [],
+        [],
+    ],
     [],
 ]
 
