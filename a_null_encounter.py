@@ -127,18 +127,28 @@ def ask_questions(stage_entries, lives):
                 lives,
             )
         # Check if the lives are less than or equal to zero.
-        if (lives <= 0):
+        if lives <= 0:
             # Break the loop.
             break
 
     # Return the amount of lives left.
     return lives
 
+
 # Define a function to generate a possible void
 # effect which challenges the user.
 def chance_void_effect(stage_num, lives):
     # Determine the chance of the effect taking place.
-    pass
+    effect_chance = (0.5 * (stage_num**2)) + (0.5 * stage_num) + 39
+
+    # Check if lives are less than or equal to 0.
+    if lives <= 0:
+        # Return the lives early in the function.
+        return lives
+
+    # Check if a random integer from 1 to 100 is less than
+    # or equal to the effect chance.
+
 
 # Define the main function.
 def main():
