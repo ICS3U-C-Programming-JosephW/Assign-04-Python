@@ -31,13 +31,18 @@ STAGE_ENTRIES = [
         ["2 x (4^9^0.5) = ", 128],
     ],
     [
-        [],
-        [],
-        [],
+        ["(-3 x (3 - 4)) + 31 = ", 34],
+        ["What is good to one person can be bad to another. (yes/no)", "yes"],
+        ["(6 + 3 x 2) x 2^3 + 4 + (12-2) = ", 110],
     ],
-    [],
+    [
+        ["1 + (1 % 1) - 1 + 1 + (1^0.88) / 1 - (1^1) - 1 + 1 - (1^0.5) + 1", 1]
+        ["Morality is complex and everyone sees it differently. (yes/no)", "yes"]
+    ],
 ]
 
 # Create a 3-dimensional list to store all the corresponding
 # dialogue lines and delay times for each of the six parts.
-STAGE_DIALOGUES = []
+STAGE_DIALOGUES = [
+    
+]
