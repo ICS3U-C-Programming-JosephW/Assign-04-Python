@@ -11,8 +11,10 @@
 
 # Import the constants module for useful constants.
 import constants
+
 # Import random module to use random functions.
 import random
+
 # Import the time module to delay the program.
 import time
 
@@ -82,16 +84,18 @@ def get_correct_integer(prompt, target_int, lives):
                 print(
                     f"Correct. You currently have {lives} {'life' if (lives == 1) else 'lives'}."
                 )
+
+            # Check if the user input was the correct answer or
+            # if their lives are less than or equal to zero.
+            if (user_int_input == target_int) or (lives <= 0):
+                # Break the loop.
+                break
+
         # Runs if int() could not convert the user's string input into an integer.
         except ValueError:
             # Display to the user that they did not enter a valid integer.
             print(f"{user_int_input_str} is not a valid integer. Try again.")
 
-        # Check if the user input was the correct answer or
-        # if their lives are less than or equal to zero.
-        if (user_int_input == target_int) or (lives <= 0):
-            # Break the loop.
-            break
     # Return the amount of lives left.
     return lives
 
@@ -103,7 +107,7 @@ def ask_questions(stage_entries, lives):
     stage_entries_copy = stage_entries.copy()
 
     # Shuffle the list copy for randomized questions.
-    stage_entries_copy.shuffle()
+    random.shuffle(stage_entries_copy)
 
     # Display the initial line for any stage.
     print(f"{constants.LIGHT_BLUE}Let us see...{constants.WHITE}")
@@ -112,7 +116,7 @@ def ask_questions(stage_entries, lives):
     # question in the specific stage list.
     for question_num in range(len(stage_entries_copy)):
         # Check if the type of the answer is a string.
-        if stage_entries_copy[question_num][1] == str:
+        if (type(stage_entries_copy[question_num][1]) == str):
             # Run the string question function.
             lives = get_correct_string(
                 stage_entries_copy[question_num][0],
@@ -122,7 +126,7 @@ def ask_questions(stage_entries, lives):
         # Otherwise, the type of the answer has to be an integer.
         else:
             # Run the integer question function.
-            lives = get_correct_string(
+            lives = get_correct_integer(
                 stage_entries_copy[question_num][0],
                 stage_entries_copy[question_num][1],
                 lives,
@@ -152,29 +156,34 @@ def chance_void_effect(stage_num, lives):
     # Check if a random integer from 1 to 100 is less than
     # or equal to the effect chance.
     if random.randint(1, 100) <= effect_chance:
-        # Determine a possible effect by randomly selecting 
+        # Determine a possible effect by randomly selecting
         # one from the void effects array.
         possible_effect = random.choice(constants.VOID_EFFECTS)
 
         # Determine the damage of the effect
         # based on the user's stage number.
-        effect_damage = (0.1 * (stage_num ** 2)) + (0.4 * stage_num) + 0.6
+        effect_damage = (0.1 * (stage_num**2)) + (0.4 * stage_num) + 0.6
 
         # Take away the user's lives based on the effect damage.
         lives = max(lives - effect_chance, 0)
 
         # Display the resulting effect description.
-        print(f"{constants.LIGHT_PURPLE}{possible_effect}. "
-        f"You took {effect_damage} damage and have {lives} lives left.{constants.WHITE}")
+        print(
+            f"{constants.LIGHT_PURPLE}{possible_effect}. "
+            f"You took {effect_damage} damage and have {lives} lives left.{constants.WHITE}"
+        )
     # Otherwise, the random number was greater than the effect chance.
     else:
         # Display the user that they are unaffected.
-        print(f"{constants.LIGHT_PURPLE}You remain unaffected in "
-        f"the seemingly soundless void.{constants.WHITE}")
-    
+        print(
+            f"{constants.LIGHT_PURPLE}You remain unaffected in "
+            f"the seemingly soundless void.{constants.WHITE}"
+        )
+
     # Return the lives at the end if the function
     # was able to avoid the early return statement.
     return lives
+
 
 # Define the main function.
 def main():
@@ -185,11 +194,11 @@ def main():
     # Loop through all the stage entries.
     for base_stage_num in range(len(constants.STAGE_ENTRIES)):
         # Check if the user's lives are zero or less.
-        if (user_current_lives <= 0):
+        if user_current_lives <= 0:
             # Break the loop.
             break
 
-        # Nest a for loop inside to loop through all 
+        # Nest a for loop inside to loop through all
         # the dialogue lines before the corresponding
         # stage entries.
         for line_num in range(len(constants.STAGE_DIALOGUES[base_stage_num])):
@@ -198,14 +207,12 @@ def main():
             # Delay the whole program based on the corresponding dialogue
             # line for dynamic pacing.
             time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1])
-        
+
         # Ask the user questions depending on their base stage number
-        # and assign their remaining lives to their current lives. 
+        # and assign their remaining lives to their current lives.
         user_current_lives = ask_questions(
-            constants.STAGE_ENTRIES[base_stage_num], user_current_lives)
-
-
-
+            constants.STAGE_ENTRIES[base_stage_num], user_current_lives
+        )
 
 
 # Check if the special name of the file is __main__.

@@ -8,38 +8,36 @@
 STAGE_ENTRIES = [
     [
         ["3 + 4 = ", 7],
-        ["Are truths and lies the same? (yes/no/both)", "both"],
+        ["Are truths and lies the same? (yes/no/both): ", "both"],
         ["13 - 8 = ", 5],
     ],
     [
-        ["Is it okay to forget often...? (yes/no)", "no"],
+        ["Is it okay to forget often...? (yes/no): ", "no"],
         ["(2 x 3) + 3 = ", 9],
-        ["1 + (12 / 12) * 12 = ", 24],
-        ["In this void, does time still exist? (yes/no)", "yes"],
+        ["1 + (12 / 12) * 12 = ", 13],
+        ["In this void, does time still exist? (yes/no): ", "yes"],
     ],
     [
-        ["Is life supposed to be fun? (yes/no)", "yes"],
+        ["Is life supposed to be fun? (yes/no): ", "yes"],
         ["2^4 = ", 16],
         ["5 + (3 x 4)^2 + ((10 - 2) / 2) = ", 153],
-        ["What is my name? (null/nothing/nobody)", "null"][
-            "(2 + 1) x (3 - 2) x 16 = ", 48
-        ],
+        ["What is my name? (null/nothing/nobody): ", "null"],
+        ["(2 + 1) x (3 - 2) x 16 = ", 48],
     ],
     [
-        ["Do morals always mean good...? (yes/no)", "no"],
+        ["Do morals always mean good...? (yes/no): ", "no"],
         ["10 % 2 + 9^(3/6) = ", 3],
-        ["Could this all be an illusion? (yes/no/maybe)", "maybe"],
+        ["Could this all be an illusion? (yes/no/maybe): ", "maybe"],
         ["2 x (4^9^0.5) = ", 128],
     ],
     [
         ["(-3 x (3 - 4)) + 31 = ", 34],
-        ["What is good to one person can be bad to another. (yes/no)", "yes"],
+        ["What is good to one person can be bad to another. (yes/no): ", "yes"],
         ["(6 + 3 x 2) x 2^3 + 4 + (12-2) = ", 110],
     ],
     [
-        ["1 + (1 % 1) - 1 + 1 + (1^0.88) / 1 - (1^1) - 1 + 1 - (1^0.5) + 1", 1][
-            "Morality is complex and everyone sees it differently. (yes/no)", "yes"
-        ],
+        ["1 + (1 % 1) - 1 + 1 + (1^0.88) / 1 - (1^1) - 1 + 1 - (1^0.5) + 1 = ", 1],
+        ["Morality is complex and everyone sees it differently. (yes/no): ", "yes"],
     ],
 ]
 
@@ -75,7 +73,8 @@ STAGE_DIALOGUES = [
             "I would tell my story, and most of them would just "
             "disappear before I even finish it.",
             2,
-        ]["User: Ah... wait, story? You have a backstory?", 2],
+        ],
+        ["User: Ah... wait, story? You have a backstory?", 2],
         [
             "Null: Yes. I would be happy to share it.",
             1.5,
@@ -100,7 +99,8 @@ STAGE_DIALOGUES = [
             "it felt like I was one with nature.",
             2,
         ],
-        ["I would attend to school, do my work, and look forward to the next day.", 1][
+        ["I would attend to school, do my work, and look forward to the next day.", 1],
+        [
             "I repeated this routine daily, quickly eating my breakfast "
             "so I could go outside early and run to the large field, just to experience "
             "that feeling over and over again.",
@@ -119,7 +119,8 @@ STAGE_DIALOGUES = [
         ["It was...", 2.5],
     ],
     [
-        ["...ME. It was me.", 2][
+        ["...ME. It was me.", 2],
+        [
             "I was losing touch. My memory started receding, and I silently panicked in my "
             "head, fighting endless battles against my diminishing neurons.",
             3,
@@ -250,7 +251,8 @@ STAGE_DIALOGUES = [
             "and I am glad you were able to listen.",
             2,
         ],
-        ["User: I am sorry for this.", 2][
+        ["User: I am sorry for this.", 2],
+        [
             "Null: Why? I do not mind wandering here. It is like my heaven, sort of...",
             1.5,
         ],
@@ -279,7 +281,7 @@ VOID_EFFECTS = [
     "and fly towards you without your notice, surprising both "
     "you and null",
     "Lingering in this void makes you feel unwell, "
-    "and you somewhat feel like leaving"
+    "and you somewhat feel like leaving",
 ]
 
 # For text escape codes.
