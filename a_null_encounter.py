@@ -184,7 +184,7 @@ def chance_void_effect(stage_num, lives):
         # Display the resulting effect description and damage dealt.
         print(
             f"\n{constants.LIGHT_PURPLE}{possible_effect}. "
-            f"You took {effect_damage} damage and have {lives} lives left.{constants.WHITE}\n"
+            f"You took {effect_damage} damage and have {lives} {'life' if (lives == 1) else 'lives'} left.{constants.WHITE}\n"
         )
     # Otherwise, the random number was greater than the effect chance.
     else:
