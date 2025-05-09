@@ -264,3 +264,20 @@ STAGE_DIALOGUES = [
         ["Null continues to wander, hopeful for the next person... The end.", 1],
     ],
 ]
+
+# Create a one-dimensional array to store the void effects
+# that have a possible chance of affecting the user.
+VOID_EFFECTS = [
+    "The distant stars glare at the unfamiliar "
+    "figure that is you, setting you ablaze internally",
+    "You feel a deep pang of loneliness that eats you inside, "
+    "even though null is by your side",
+    "The temperature of this silent and empty void "
+    "sends powerful chills down your spine",
+    "The lack of entropy present in this void scares you",
+    "Some meteoroids seem to have their own mind "
+    "and fly towards you without your notice, surprising both "
+    "you and null",
+    "Lingering in this void makes you feel unwell, "
+    "and you somewhat feel like leaving"
+]
