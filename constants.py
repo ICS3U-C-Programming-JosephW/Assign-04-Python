@@ -281,3 +281,11 @@ VOID_EFFECTS = [
     "Lingering in this void makes you feel unwell, "
     "and you somewhat feel like leaving"
 ]
+
+# For text escape codes.
+LIGHT_RED = "\033[1;31m"
+LIGHT_GREEN = "\033[1;32m"
+LIGHT_BLUE = "\033[1;34m"
+LIGHT_PURPLE = "\033[1;35m"
+DARK_GRAY = "\033[1;30m"
+WHITE = "\033[0m"

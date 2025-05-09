@@ -11,9 +11,10 @@
 
 # Import the constants module for useful constants.
 import constants
-
 # Import random module to use random functions.
 import random
+# Import the time module to delay the program.
+import time
 
 
 # Define a function to help get the correct
@@ -105,7 +106,7 @@ def ask_questions(stage_entries, lives):
     stage_entries_copy.shuffle()
 
     # Display the initial line for any stage.
-    print("Let us see...")
+    print(f"{constants.LIGHT_BLUE}Let us see...{constants.WHITE}")
 
     # Use a for loop to loop through every
     # question in the specific stage list.
@@ -163,11 +164,13 @@ def chance_void_effect(stage_num, lives):
         lives = max(lives - effect_chance, 0)
 
         # Display the resulting effect description.
-        print(f"{possible_effect}. You took {effect_damage} damage and have {lives} lives left.")
+        print(f"{constants.LIGHT_PURPLE}{possible_effect}. "
+        f"You took {effect_damage} damage and have {lives} lives left.{constants.WHITE}")
     # Otherwise, the random number was greater than the effect chance.
     else:
         # Display the user that they are unaffected.
-        print("You remain unaffected in the seemingly soundless void.")
+        print(f"{constants.LIGHT_PURPLE}You remain unaffected in "
+        f"the seemingly soundless void.{constants.WHITE}")
     
     # Return the lives at the end if the function
     # was able to avoid the early return statement.
@@ -175,7 +178,34 @@ def chance_void_effect(stage_num, lives):
 
 # Define the main function.
 def main():
-    pass
+    # Set the user's current lives to
+    # 25, which can change overtime.
+    user_current_lives = 25
+
+    # Loop through all the stage entries.
+    for base_stage_num in range(len(constants.STAGE_ENTRIES)):
+        # Check if the user's lives are zero or less.
+        if (user_current_lives <= 0):
+            # Break the loop.
+            break
+
+        # Nest a for loop inside to loop through all 
+        # the dialogue lines before the corresponding
+        # stage entries.
+        for line_num in range(len(constants.STAGE_DIALOGUES[base_stage_num])):
+            # Display the line of dialogue based on the current line number.
+            print(constants.STAGE_DIALOGUES[base_stage_num][line_num][0])
+            # Delay the whole program based on the corresponding dialogue
+            # line for dynamic pacing.
+            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1])
+        
+        # Ask the user questions depending on their base stage number
+        # and assign their remaining lives to their current lives. 
+        user_current_lives = ask_questions(
+            constants.STAGE_ENTRIES[base_stage_num], user_current_lives)
+
+
+
 
 
 # Check if the special name of the file is __main__.
