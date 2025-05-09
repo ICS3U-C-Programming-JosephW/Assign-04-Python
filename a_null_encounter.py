@@ -138,19 +138,40 @@ def ask_questions(stage_entries, lives):
 # Define a function to generate a possible void
 # effect which challenges the user.
 def chance_void_effect(stage_num, lives):
-    # Determine the chance of the effect taking place.
+    # Determine the chance of the effect taking place
+    # based on the user's stage number.
     effect_chance = (0.5 * (stage_num**2)) + (0.5 * stage_num) + 39
 
     # Check if lives are less than or equal to 0.
     if lives <= 0:
-        # Return the lives early in the function.
+        # Return the lives early in the function so
+        # the user does not take any extra damage.
         return lives
 
     # Check if a random integer from 1 to 100 is less than
     # or equal to the effect chance.
     if random.randint(1, 100) <= effect_chance:
-        pass
+        # Determine a possible effect by randomly selecting 
+        # one from the void effects array.
+        possible_effect = random.choice(constants.VOID_EFFECTS)
 
+        # Determine the damage of the effect
+        # based on the user's stage number.
+        effect_damage = (0.1 * (stage_num ** 2)) + (0.4 * stage_num) + 0.6
+
+        # Take away the user's lives based on the effect damage.
+        lives = max(lives - effect_chance, 0)
+
+        # Display the resulting effect description.
+        print(f"{possible_effect}. You took {effect_damage} damage and have {lives} lives left.")
+    # Otherwise, the random number was greater than the effect chance.
+    else:
+        # Display the user that they are unaffected.
+        print("You remain unaffected in the seemingly soundless void.")
+    
+    # Return the lives at the end if the function
+    # was able to avoid the early return statement.
+    return lives
 
 # Define the main function.
 def main():
