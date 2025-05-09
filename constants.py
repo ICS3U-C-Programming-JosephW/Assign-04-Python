@@ -241,9 +241,26 @@ STAGE_DIALOGUES = [
             "I still sighed in relief, every time.",
             2,
         ],
-        ["And I will again, once you fade, too, user.", 2.5],
+        ["And I sigh in relief again once you manage to fade, user.", 2.5],
     ],
     [
-        
+        [
+            "Null: Well, that is the extent of my story that continues to decline in quality. "
+            "Your resolve allowed you to endure these harsh conditions, "
+            "and I am glad you were able to listen.",
+            2,
+        ],
+        ["User: I am sorry for this.", 2][
+            "Null: Why? I do not mind wandering here. It is like my heaven, sort of...",
+            1.5,
+        ],
+        ["User: This place... heaven? Wait... I am fading, just like you said!", 1.5],
+        [
+            "Null: Yes. I did not want this to happen so soon, but you are heading back "
+            "to the real world. Farewell, my friend.",
+            2.5,
+        ],
+        ["User: Farewell, null.", 3],
+        ["Null continues to wander, hopeful for the next person... The end.", 1],
     ],
 ]
