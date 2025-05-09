@@ -12,10 +12,10 @@
 # Import the constants module for useful constants.
 import constants
 
-# Import random module to use random functions.
+# Import random module for random functions.
 import random
 
-# Import the time module to delay the program.
+# Import the time module for the delay function.
 import time
 
 
@@ -36,13 +36,17 @@ def get_correct_string(prompt, target_str, lives):
             lives = max(lives - 1, 0)
             # Display to the user that they were incorrect,
             # along with their resulting lives.
-            print(f"Incorrect, you lost one life and have {lives} left.")
+            print(
+                f"{constants.BOLD}Incorrect, you lost one life "
+                f"and have {lives:.1f} left.{constants.WHITE}"
+            )
         # Otherwise, the user answered correctly.
         else:
             # Display to the user that they were correct,
             # along with their resulting lives.
             print(
-                f"Correct. You currently have {lives} {'life' if (lives == 1) else 'lives'}."
+                f"{constants.BOLD}Correct. You currently have {lives:.1f} "
+                f"{'life' if (lives == 1) else 'lives'}.{constants.WHITE}"
             )
 
         # Check if the user input was the correct answer or
@@ -76,13 +80,17 @@ def get_correct_integer(prompt, target_int, lives):
                 lives = max(lives - 1, 0)
                 # Display to the user that they were incorrect,
                 # along with their resulting lives.
-                print(f"Incorrect, you lost one life and have {lives} left.")
+                print(
+                    f"{constants.BOLD}Incorrect, you lost one life "
+                    f"and have {lives:.1f} left.{constants.WHITE}"
+                )
             # Otherwise, the user answered correctly.
             else:
                 # Display to the user that they were correct,
                 # along with their resulting lives.
                 print(
-                    f"Correct. You currently have {lives} {'life' if (lives == 1) else 'lives'}."
+                    f"{constants.BOLD}Correct. You currently have {lives:.1f} "
+                    f"{'life' if (lives == 1) else 'lives'}.{constants.WHITE}"
                 )
 
             # Check if the user input was the correct answer or
@@ -94,7 +102,9 @@ def get_correct_integer(prompt, target_int, lives):
         # Runs if int() could not convert the user's string input into an integer.
         except ValueError:
             # Display to the user that they did not enter a valid integer.
-            print(f"{user_int_input_str} is not a valid integer. Try again.")
+            print(
+                f"{constants.BOLD}{user_int_input_str} is not a valid integer. Try again.{constants.WHITE}"
+            )
 
     # Return the amount of lives left.
     return lives
@@ -119,7 +129,9 @@ def ask_questions(stage_entries, lives):
         if type(stage_entries_copy[question_num][1]) == str:
             # Run the string question function.
             lives = get_correct_string(
-                stage_entries_copy[question_num][0],
+                f"\n{constants.LIGHT_BLUE}"
+                + stage_entries_copy[question_num][0]
+                + constants.WHITE,
                 stage_entries_copy[question_num][1],
                 lives,
             )
@@ -127,7 +139,9 @@ def ask_questions(stage_entries, lives):
         else:
             # Run the integer question function.
             lives = get_correct_integer(
-                stage_entries_copy[question_num][0],
+                f"\n{constants.LIGHT_BLUE}"
+                + stage_entries_copy[question_num][0]
+                + constants.WHITE,
                 stage_entries_copy[question_num][1],
                 lives,
             )
@@ -165,19 +179,19 @@ def chance_void_effect(stage_num, lives):
         effect_damage = round((0.1 * (stage_num**2)) + (0.4 * stage_num) + 0.6, 1)
 
         # Take away the user's lives based on the effect damage.
-        lives = max(lives - effect_damage, 0)
+        lives = round(max(lives - effect_damage, 0), 1)
 
-        # Display the resulting effect description.
+        # Display the resulting effect description and damage dealt.
         print(
-            f"{constants.LIGHT_PURPLE}{possible_effect}. "
-            f"You took {effect_damage} damage and have {lives} lives left.{constants.WHITE}"
+            f"\n{constants.LIGHT_PURPLE}{possible_effect}. "
+            f"You took {effect_damage} damage and have {lives} lives left.{constants.WHITE}\n"
         )
     # Otherwise, the random number was greater than the effect chance.
     else:
         # Display the user that they are unaffected.
         print(
-            f"{constants.LIGHT_PURPLE}You remain unaffected in "
-            f"the seemingly soundless void.{constants.WHITE}"
+            f"\n{constants.LIGHT_PURPLE}You remain unaffected in "
+            f"the seemingly soundless void.{constants.WHITE}\n"
         )
 
     # Return the lives at the end if the function
@@ -203,10 +217,14 @@ def main():
         # stage entries.
         for line_num in range(len(constants.STAGE_DIALOGUES[base_stage_num])):
             # Display the line of dialogue based on the current line number.
-            print(constants.STAGE_DIALOGUES[base_stage_num][line_num][0])
+            print(
+                constants.DARK_GRAY
+                + constants.STAGE_DIALOGUES[base_stage_num][line_num][0]
+                + f"\n{constants.WHITE}"
+            )
             # Delay the whole program based on the corresponding dialogue
             # line for dynamic pacing.
-            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1] * 0.001)
+            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1] * 0.01)
 
         # Ask the user questions depending on their base stage number
         # and assign their remaining lives to their current lives.
@@ -224,40 +242,42 @@ def main():
         # Display the winning dialogue with pacing.
         print(
             f"{constants.LIGHT_GREEN}Null: Well, that is the extent of "
-            "my story that continues to decline in quality. "
+            "my story that continues to decline in quality.\n"
             "Your resolve allowed you to endure these harsh conditions, "
-            f"and I am glad you were able to listen.{constants.WHITE}"
+            f"and I am glad you were able to listen.{constants.WHITE}\n"
         )
-        time.sleep(1.5)
-        print(f"{constants.LIGHT_GREEN}User: I am sorry for this.{constants.WHITE}")
+        time.sleep(3)
+        print(f"{constants.LIGHT_GREEN}User: I am sorry for this.{constants.WHITE}\n")
+        time.sleep(3)
         print(
             f"{constants.LIGHT_GREEN}Null: Why? I do not mind wandering here. "
-            f"It is like my heaven, sort of...{constants.WHITE}"
+            f"It is like my heaven, sort of...{constants.WHITE}\n"
         )
-        time.sleep(1.5)
+        time.sleep(3)
         print(
             f"{constants.LIGHT_GREEN}User: This place... heaven? Wait... "
-            f"I am fading, just like you said!{constants.WHITE}"
+            f"I am fading, just like you said!{constants.WHITE}\n"
         )
-        time.sleep(1.5)
+        time.sleep(3)
         print(
             f"{constants.LIGHT_GREEN}Null: Yes. I did not want this to happen so soon, "
-            f"but you are heading back to the real world. Farewell, my friend.{constants.WHITE}"
+            f"but you are heading back to the real world. Farewell, my friend.{constants.WHITE}\n"
         )
-        print(f"{constants.LIGHT_GREEN}User: Farewell, null.{constants.WHITE}")
-        time.sleep(1.5)
+        time.sleep(3)
+        print(f"{constants.LIGHT_GREEN}User: Farewell, null.{constants.WHITE}\n")
+        time.sleep(3)
         print(
             f"{constants.LIGHT_GREEN}Null continues to wander, "
             f"hopeful for the next person... The end.{constants.WHITE}"
         )
-
+        time.sleep(3)
     # Otherwise, the user is dead.
     else:
         # Display the game over message.
         print(
-            f"{constants.LIGHT_RED}. . . You have faltered under the void. "
+            f"\n{constants.LIGHT_RED}. . . You have faltered under the void. "
             f"Who knows, maybe this was all just an illusion.{constants.WHITE}"
-            )
+        )
 
 
 # Check if the special name of the file is __main__.
