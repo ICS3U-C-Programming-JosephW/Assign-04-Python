@@ -43,9 +43,9 @@ STAGE_ENTRIES = [
     ],
 ]
 
-# Create a 3-dimensional list to store all the
-# corresponding dialogue lines and delay times
-# for each of the six story parts.
+# Create a 3-dimensional list to store all
+# the corresponding dialogue lines and delay
+# times for each of the six story parts.
 STAGE_DIALOGUES = [
     [
         [
@@ -58,7 +58,7 @@ STAGE_DIALOGUES = [
         ["User: Null as in nothing?", 1],
         [
             "Null: Well, sort of. "
-            "I forgot my name and pretty much everything else, "
+            "I forgot my name and practically everything else, "
             "so that is what I go by.",
             1.5,
         ],
@@ -72,11 +72,12 @@ STAGE_DIALOGUES = [
         ["User: So I'm stuck here forever???", 1],
         [
             "Null: No. Others managed to leave, some shorter than the others. "
-            "I would tell my story, and most of them would just disappear.",
+            "I would tell my story, and most of them would just "
+            "disappear before I even finish it.",
             2,
         ]["User: Ah... wait, story? You have a backstory?", 2],
         [
-            "Null: Yes. I would happy to share it.",
+            "Null: Yes. I would be happy to share it.",
             1.5,
         ],
         [
@@ -93,6 +94,156 @@ STAGE_DIALOGUES = [
             "the more pleasant.",
             3,
         ],
-        ["I felt like I could stay in this happy state forever."],
-    ]
+        [
+            "I felt like I could stay in this happy state forever. "
+            "As I lay on the seemingly endless field of grass and flowers, "
+            "it felt like I was one with nature.",
+            2,
+        ],
+        ["I would attend to school, do my work, and look forward to the next day.", 1][
+            "I repeated this routine daily, quickly eating my breakfast "
+            "so I could go outside early and run to the large field, just to experience "
+            "that feeling over and over again.",
+            2,
+        ],
+        ["However, as days passed, everything got weirder and less exciting.", 3],
+        [
+            "I still went to the field, but I could not make the same connections, ever.",
+            2,
+        ],
+        [
+            "I thought it was normal and the weather changes had to do with it, but even doing "
+            "work and attending classes got harder.",
+            2,
+        ],
+        ["It was...", 2.5],
+    ],
+    [
+        ["...ME. It was me.", 2][
+            "I was losing touch. My memory started receding, and I silently panicked in my "
+            "head, fighting endless battles against my diminishing neurons.",
+            3,
+        ],
+        ["Things were blurry, and my grades dropping at an all-time low. ", 2],
+        [
+            "I tried to make up for them by working extra, but it did not do "
+            "anything but add on to my confusion and distress.",
+            3,
+        ],
+        [
+            "Asking my parents for help because I forgot how to do simple tasks "
+            "made them very concerned.",
+            2,
+        ],
+        [
+            "The final nail in the coffin was genuinely asking my parents how to make a "
+            "cheese sandwich, which is something I do everyday.",
+            2,
+        ],
+        [
+            "They looked at me fearfully, and that was when I got sent to the hospital.",
+            2,
+        ],
+    ],
+    [
+        [
+            "Most other people outside of the hospital looked had the same feelings. Not "
+            "even the neurologists could find anything wrong, and they looked at each other, "
+            "baffled. This was not some typical condition.",
+            2,
+        ],
+        ["It was like a nightmare, especially for my parents.", 1],
+        [
+            "It is excruciatingly painful when your own child suddenly does not remember "
+            "anything about you anymore. I saw those feelings etched on my parents faces as"
+            "tears freely flowed from their faces.",
+            2.5,
+        ],
+        [
+            "My parents urged the other doctors to do something, but it was to no avail.",
+            2,
+        ],
+        [
+            "Family, friends, work, the flower field, and routine, all forgotten. That was "
+            "when I completely faded and ceased to live.",
+            3,
+        ],
+    ],
+    [
+        [
+            "I escaped out of my own body for a short period of time, being able to see "
+            " the reaction of my parents and other friends. It was heartbreaking, but I "
+            "did not have a heart anymore.",
+            3,
+        ],
+        [
+            "After that short period of time, I could only see black and some distant dots.",
+            2,
+        ],
+        [
+            "I came to realize I was in what looked like outer space with stars, "
+            "but I did not know why.",
+            2,
+        ],
+        [
+            "I could feel my own body and breathe, unaffected by being present in "
+            "what seemed like outer space.",
+            1.5,
+        ],
+        [
+            "Maybe this was a reflection of my diminishing memories, or not. I "
+            "never felt like connecting all the pieces.",
+            3,
+        ],
+        [
+            "Being able to tell this story multiple times was surprising. It's "
+            "like some instance of myself that wasn't affected by forgetfulness "
+            "was reloaded.",
+            3,
+        ],
+    ],
+    [
+        [
+            "I could not count time, do work, play, or go to the fields anymore. "
+            "All I could do was reflect and contemplate in this void.",
+            2,
+        ],
+        ["There were no feelings, but that would change.", 3],
+        [
+            "Once I saw someone appear in my 'realm,' I got scared "
+            "for some reason, thinking how it was possible.",
+            2,
+        ],
+        [
+            "People were able to fade out from my realm as well, "
+            "since they were still connected to their living selves, "
+            "unlike me.",
+            2.5,
+        ],
+        [
+            "However, every person that managed to crawl into my space "
+            "seemed to have the same feelings of loss and forgetfulness.",
+            2,
+        ],
+        [
+            "I could immediately connect myself to them, just like how I "
+            "felt when I embraced nature on what seemed like the perfect day.",
+            3,
+        ],
+        [
+            "Knowing that, I wished them the best as they faded, and decided to "
+            "keep contemplating until someone else appeared.",
+            3,
+        ],
+        [
+            "Those gaps in time seemed long, but it felt like I was being impatient. "
+            "I was grateful, anyway. Even if they faded sooner than I expected, "
+            "I still sighed in relief, every time.",
+            2,
+        ],
+        ["And I will again, once you fade, too, user.", 2.5],
+    ],
+    [
+        
+    ],
 ]
