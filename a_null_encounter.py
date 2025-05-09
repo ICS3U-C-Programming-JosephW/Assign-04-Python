@@ -116,7 +116,7 @@ def ask_questions(stage_entries, lives):
     # question in the specific stage list.
     for question_num in range(len(stage_entries_copy)):
         # Check if the type of the answer is a string.
-        if (type(stage_entries_copy[question_num][1]) == str):
+        if type(stage_entries_copy[question_num][1]) == str:
             # Run the string question function.
             lives = get_correct_string(
                 stage_entries_copy[question_num][0],
@@ -162,10 +162,10 @@ def chance_void_effect(stage_num, lives):
 
         # Determine the damage of the effect
         # based on the user's stage number.
-        effect_damage = (0.1 * (stage_num**2)) + (0.4 * stage_num) + 0.6
+        effect_damage = round((0.1 * (stage_num**2)) + (0.4 * stage_num) + 0.6, 1)
 
         # Take away the user's lives based on the effect damage.
-        lives = max(lives - effect_chance, 0)
+        lives = max(lives - effect_damage, 0)
 
         # Display the resulting effect description.
         print(
@@ -206,13 +206,58 @@ def main():
             print(constants.STAGE_DIALOGUES[base_stage_num][line_num][0])
             # Delay the whole program based on the corresponding dialogue
             # line for dynamic pacing.
-            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1])
+            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1] * 0.001)
 
         # Ask the user questions depending on their base stage number
         # and assign their remaining lives to their current lives.
         user_current_lives = ask_questions(
             constants.STAGE_ENTRIES[base_stage_num], user_current_lives
         )
+        # Generate a possible void effect based on the user's actual
+        # stage number and assign their remaining lives to their
+        # current lives.
+        user_current_lives = chance_void_effect(base_stage_num + 1, user_current_lives)
+
+    # After the loop, do a final check to
+    # determine whether the user is alive.
+    if user_current_lives > 0:
+        # Display the winning dialogue with pacing.
+        print(
+            f"{constants.LIGHT_GREEN}Null: Well, that is the extent of "
+            "my story that continues to decline in quality. "
+            "Your resolve allowed you to endure these harsh conditions, "
+            f"and I am glad you were able to listen.{constants.WHITE}"
+        )
+        time.sleep(1.5)
+        print(f"{constants.LIGHT_GREEN}User: I am sorry for this.{constants.WHITE}")
+        print(
+            f"{constants.LIGHT_GREEN}Null: Why? I do not mind wandering here. "
+            f"It is like my heaven, sort of...{constants.WHITE}"
+        )
+        time.sleep(1.5)
+        print(
+            f"{constants.LIGHT_GREEN}User: This place... heaven? Wait... "
+            f"I am fading, just like you said!{constants.WHITE}"
+        )
+        time.sleep(1.5)
+        print(
+            f"{constants.LIGHT_GREEN}Null: Yes. I did not want this to happen so soon, "
+            f"but you are heading back to the real world. Farewell, my friend.{constants.WHITE}"
+        )
+        print(f"{constants.LIGHT_GREEN}User: Farewell, null.{constants.WHITE}")
+        time.sleep(1.5)
+        print(
+            f"{constants.LIGHT_GREEN}Null continues to wander, "
+            f"hopeful for the next person... The end.{constants.WHITE}"
+        )
+
+    # Otherwise, the user is dead.
+    else:
+        # Display the game over message.
+        print(
+            f"{constants.LIGHT_RED}. . . You have faltered under the void. "
+            f"Who knows, maybe this was all just an illusion.{constants.WHITE}"
+            )
 
 
 # Check if the special name of the file is __main__.
