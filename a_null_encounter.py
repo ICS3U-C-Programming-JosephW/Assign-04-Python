@@ -224,7 +224,7 @@ def main():
             )
             # Delay the whole program based on the corresponding dialogue
             # line for dynamic pacing.
-            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1] * 0.01)
+            time.sleep(constants.STAGE_DIALOGUES[base_stage_num][line_num][1])
 
         # Ask the user questions depending on their base stage number
         # and assign their remaining lives to their current lives.
